@@ -109,7 +109,6 @@ nav{position:sticky;top:0;z-index:100;background:oklch(from var(--color-bg) l c 
 
 /* ─── ABOUT ─── */
 .about-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:var(--space-16);align-items:start;}
-.about-left{}
 .tools-list{display:flex;flex-wrap:wrap;gap:var(--space-2);margin-top:var(--space-6);}
 .tool-chip{font-size:var(--text-xs);font-weight:600;padding:var(--space-1) var(--space-3);border-radius:var(--radius-full);background:var(--color-surface-offset);color:var(--color-text-muted);border:1px solid var(--color-border);}
 .about-bio p{font-size:var(--text-base);color:var(--color-text-muted);margin-bottom:var(--space-4);line-height:1.7;}
@@ -155,6 +154,64 @@ nav{position:sticky;top:0;z-index:100;background:oklch(from var(--color-bg) l c 
 .projects-grid{display:grid;gap:var(--space-6);}
 .project-card{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-sm);transition:box-shadow var(--transition-interactive),transform var(--transition-interactive);}
 .project-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-2px);}
+
+/* ─── PROJECT PREVIEW IMAGE ─── */
+.project-preview-wrap{
+  width:100%;
+  overflow:hidden;
+  border-bottom:1px solid var(--color-border);
+  background:var(--color-surface-offset);
+  position:relative;
+  max-height:320px;
+}
+.project-preview-wrap img{
+  width:100%;
+  height:320px;
+  object-fit:cover;
+  object-position:top center;
+  display:block;
+  transition:transform 0.5s cubic-bezier(0.16,1,0.3,1);
+}
+.project-card:hover .project-preview-wrap img{transform:scale(1.025);}
+/* Placeholder shown when image is missing */
+.project-preview-placeholder{
+  width:100%;
+  height:320px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:var(--space-3);
+  background:var(--color-surface-offset);
+}
+.project-preview-placeholder svg{opacity:0.18;}
+.project-preview-placeholder span{
+  font-size:var(--text-xs);
+  font-weight:600;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  color:var(--color-text-faint);
+}
+/* Badge overlaid on image */
+.project-preview-badge{
+  position:absolute;
+  bottom:var(--space-4);
+  left:var(--space-4);
+  display:flex;
+  gap:var(--space-2);
+}
+.project-preview-badge span{
+  font-size:var(--text-xs);
+  font-weight:700;
+  letter-spacing:0.04em;
+  padding:3px var(--space-3);
+  border-radius:var(--radius-full);
+  background:oklch(from var(--color-bg) l c h/0.88);
+  color:var(--color-text);
+  border:1px solid var(--color-border);
+  backdrop-filter:blur(8px);
+}
+
 .project-card-inner{display:grid;grid-template-columns:1fr 1fr;gap:0;}
 .project-content{padding:var(--space-10);}
 .project-meta{display:flex;align-items:center;gap:var(--space-3);margin-bottom:var(--space-6);flex-wrap:wrap;}
@@ -270,10 +327,12 @@ footer{padding:var(--space-8) var(--space-6);border-top:1px solid var(--color-di
           <span class="tool-chip">Woocommerce</span>
           <span class="tool-chip">Mailchimp</span>
           <span class="tool-chip">Meta Ads</span>
+          <span class="tool-chip">Google Ads</span>
           <span class="tool-chip">Power BI</span>
           <span class="tool-chip">Google Search Console</span>
           <span class="tool-chip">Google Tag Manager</span>
           <span class="tool-chip">Microsoft Clarity</span>
+          <span class="tool-chip">SEO</span>
           <span class="tool-chip">Excel</span>
           <span class="tool-chip">Canva</span>
           <span class="tool-chip">SQL</span>
@@ -309,9 +368,9 @@ footer{padding:var(--space-8) var(--space-6);border-top:1px solid var(--color-di
               <span class="case-tag">Conversion Optimisation</span>
             </div>
             <h3>Fixing a leaky checkout funnel</h3>
-            <p>Traffic to the website was growing month-on-month, but revenue wasn't keeping pace. Conversion rate had plateaued at under 1.5% — something was breaking between browsing and buying.</p>
+            <p>Traffic to the website was growing month-on-month, but revenue wasn't keeping pace. Conversion rate had plateaued at under 1.5% &#8212; something was breaking between browsing and buying.</p>
             <ul class="case-steps">
-              <li data-step="1">Used GA4 funnel exploration to find the exact step where 60% of sessions dropped off — the checkout page</li>
+              <li data-step="1">Used GA4 funnel exploration to find the exact step where 60% of sessions dropped off &#8212; the checkout page</li>
               <li data-step="2">Segmented users by device type, location, and traffic source to see if certain groups were more likely to abandon carts. Cross-referenced with heatmap data to identify friction points for mobile users, such as long form fields and unclear calls-to-action.</li>
               <li data-step="3">Simplified the checkout form, improved page layout, and optimized button placements</li>
               <li data-step="4">Monitored weekly for 8 weeks and tracked conversion by traffic source</li>
@@ -344,7 +403,7 @@ footer{padding:var(--space-8) var(--space-6);border-top:1px solid var(--color-di
             <h3>Subject line testing that lifted open rates</h3>
             <p>The Arts Fiesta email list was growing but open rates were sitting at industry average (~15%). The goal was to understand what drove subscribers to open and use that to improve every future send.</p>
             <ul class="case-steps">
-              <li data-step="1">Audited 6 months of Mailchimp campaign data — open rate, CTR, and revenue per send by segment</li>
+              <li data-step="1">Audited 6 months of Mailchimp campaign data &#8212; open rate, CTR, and revenue per send by segment</li>
               <li data-step="2">Identified that personalised and curiosity-driven subject lines consistently outperformed announcement-style ones</li>
               <li data-step="3">Ran A/B subject line tests over 4 campaigns with a consistent send-time and audience split</li>
               <li data-step="4">Documented winning patterns and built a subject line formula for future campaigns</li>
@@ -498,12 +557,42 @@ footer{padding:var(--space-8) var(--space-6);border-top:1px solid var(--color-di
   <div class="container-wide">
     <p class="section-label">Independent Projects</p>
     <h2 class="section-title">Data projects, built from scratch</h2>
-    <p class="section-desc">Self-directed analyses using public Kaggle datasets : end-to-end, from raw data to dashboard.</p>
+    <p class="section-desc">Self-directed analyses using public Kaggle datasets &#8212; end-to-end, from raw data to dashboard.</p>
 
     <div class="projects-grid">
 
       <!-- PROJECT 1 -->
       <article class="project-card">
+
+        <!-- DASHBOARD PREVIEW IMAGE
+             Replace src with your actual screenshot path, e.g. ./assets/dashboard-campaign.png
+             Recommended: export a full-page screenshot at 1400×700px from Power BI Desktop
+             The image crops from the top, so make sure the key charts are in the upper half -->
+        <figure class="project-preview-wrap" aria-label="Campaign Performance Dashboard preview">
+          <img
+            src="./assets/Dashboard Campaign.png"
+            alt="Campaign Performance Analysis — Power BI Dashboard screenshot"
+            width="1400" height="320"
+            loading="lazy"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+          >
+          <!-- Shown only while real image is absent -->
+          <div class="project-preview-placeholder" style="display:none;" aria-hidden="true">
+            <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="4" y="44" width="12" height="20" rx="2" fill="currentColor" style="color:var(--color-primary)"/>
+              <rect x="20" y="30" width="12" height="34" rx="2" fill="currentColor" style="color:var(--color-primary)"/>
+              <rect x="36" y="20" width="12" height="44" rx="2" fill="currentColor" style="color:var(--color-primary)"/>
+              <rect x="52" y="10" width="12" height="54" rx="2" fill="currentColor" style="color:var(--color-primary)"/>
+              <line x1="4" y1="8" x2="68" y2="8" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 3" style="color:var(--color-border)"/>
+            </svg>
+            <span>Add dashboard screenshot</span>
+          </div>
+          <div class="project-preview-badge">
+            <span>Power BI</span>
+            <span>SQL</span>
+          </div>
+        </figure>
+
         <div class="project-card-inner">
           <div class="project-content">
             <div class="project-meta">
@@ -519,14 +608,14 @@ footer{padding:var(--space-8) var(--space-6);border-top:1px solid var(--color-di
               <li data-step="3">Built calculated metrics (CTR, CPC, CPM) and a calendar table in Power BI for time-based filtering and trend analysis</li>
               <li data-step="4">Compared platform and channel performance; identified best and worst-performing campaigns by cost efficiency</li>
             </ul>
-            <a href="https://github.com/ParikshitaJain/PortfolioProjects/tree/22b0a0fb6c8057288065c46980aad7a3db55f0e4/2.%20Campaign%20Performance%20Analysis" target="_blank" rel="noopener noreferrer" class="project-link">
+            <a href="https://github.com/Parikshita-Parmar/PortfolioProjects/tree/22b0a0fb6c8057288065c46980aad7a3db55f0e4/2.%20Campaign%20Performance%20Analysis" target="_blank" rel="noopener noreferrer" class="project-link">
               View on GitHub
               <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
             </a>
           </div>
           <div class="project-stats">
             <div class="project-stat">
-              <span class="stat-val">31.2%</span>
+              <span class="stat-val">3.85%</span>
               <span class="stat-desc">Best Campaign CTR</span>
             </div>
             <div class="project-stat">
@@ -538,7 +627,7 @@ footer{padding:var(--space-8) var(--space-6);border-top:1px solid var(--color-di
               <span class="stat-desc">Total Annual Spend Analysed</span>
             </div>
             <div class="project-dataset">
-              <p>Dataset: Kaggle — Marketing Campaign Performance &middot; 12 months &middot; 3 platforms</p>
+              <p>Dataset: Kaggle &#8212; Marketing Campaign Performance &middot; 12 months &middot; 3 platforms</p>
             </div>
           </div>
         </div>
@@ -546,6 +635,37 @@ footer{padding:var(--space-8) var(--space-6);border-top:1px solid var(--color-di
 
       <!-- PROJECT 2 -->
       <article class="project-card">
+
+        <!-- DASHBOARD PREVIEW IMAGE
+             Replace src with your actual screenshot path, e.g. ./assets/dashboard-ecommerce.png
+             Recommended: export a full-page screenshot at 1400×700px from Power BI Desktop -->
+        <figure class="project-preview-wrap" aria-label="E-Commerce Dashboard preview">
+          <img
+            src="./assets/Dashboard E-Commerce.png"
+            alt="E-Commerce Data Analysis — Power BI Dashboard screenshot"
+            width="1400" height="320"
+            loading="lazy"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+          >
+          <!-- Shown only while real image is absent -->
+          <div class="project-preview-placeholder" style="display:none;" aria-hidden="true">
+            <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <polyline points="4,56 18,36 30,44 44,20 58,28 68,12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none" style="color:var(--color-primary)"/>
+              <circle cx="18" cy="36" r="3.5" fill="currentColor" style="color:var(--color-primary)"/>
+              <circle cx="30" cy="44" r="3.5" fill="currentColor" style="color:var(--color-primary)"/>
+              <circle cx="44" cy="20" r="3.5" fill="currentColor" style="color:var(--color-primary)"/>
+              <circle cx="58" cy="28" r="3.5" fill="currentColor" style="color:var(--color-primary)"/>
+              <line x1="4" y1="60" x2="68" y2="60" stroke="currentColor" stroke-width="1.5" style="color:var(--color-border)"/>
+            </svg>
+            <span>Add dashboard screenshot</span>
+          </div>
+          <div class="project-preview-badge">
+            <span>Power BI</span>
+            <span>Python</span>
+            <span>Pandas</span>
+          </div>
+        </figure>
+
         <div class="project-card-inner">
           <div class="project-content">
             <div class="project-meta">
@@ -555,14 +675,14 @@ footer{padding:var(--space-8) var(--space-6);border-top:1px solid var(--color-di
               <span class="project-tool-tag">Power BI</span>
             </div>
             <h3>E-Commerce Data Analysis</h3>
-            <p>End-to-end analysis of a UK retailer's 2023 transaction data : cleaning raw data in Python, segmenting customers with RFM analysis, and building an interactive Power BI dashboard to surface sales trends and product insights.</p>
+            <p>End-to-end analysis of a UK retailer's 2023 transaction data &#8212; cleaning raw data in Python, segmenting customers with RFM analysis, and building an interactive Power BI dashboard to surface sales trends and product insights.</p>
             <ul class="project-steps">
               <li data-step="1">Cleaned transaction data in Python (Pandas), handled missing values, outliers, duplicates, and data type inconsistencies</li>
               <li data-step="2">Performed RFM analysis to segment 300K customers into Recent, Regular, Lost, and Best groups</li>
               <li data-step="3">Analysed monthly sales trends, top products by revenue, order cancellation patterns, and country-level performance</li>
               <li data-step="4">Built Power BI dashboard with trend visuals, customer segmentation breakdown, and geographic revenue map</li>
             </ul>
-            <a href="https://github.com/ParikshitaJain/PortfolioProjects/tree/22b0a0fb6c8057288065c46980aad7a3db55f0e4/1.%20E-Commerce%20Data%20Analysis" target="_blank" rel="noopener noreferrer" class="project-link">
+            <a href="https://github.com/Parikshita-Parmar/PortfolioProjects/tree/22b0a0fb6c8057288065c46980aad7a3db55f0e4/1.%20E-Commerce%20Data%20Analysis" target="_blank" rel="noopener noreferrer" class="project-link">
               View on GitHub
               <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
             </a>
@@ -573,15 +693,15 @@ footer{padding:var(--space-8) var(--space-6);border-top:1px solid var(--color-di
               <span class="stat-desc">Annual Revenue Analysed</span>
             </div>
             <div class="project-stat">
-              <span class="stat-val warm">98.36%</span>
-              <span class="stat-desc">Repeat Customer Rate</span>
+              <span class="stat-val warm">4.29%</span>
+              <span class="stat-desc">Order Cancellation Rate</span>
             </div>
             <div class="project-stat">
               <span class="stat-val">20K+</span>
               <span class="stat-desc">Orders Processed</span>
             </div>
             <div class="project-dataset">
-              <p>Dataset: Kaggle — UK E-Commerce 2023 &middot; 300K customers &middot; Python + Power BI</p>
+              <p>Dataset: Kaggle &#8212; UK E-Commerce 2023 &middot; 300K customers &middot; Python + Power BI</p>
             </div>
           </div>
         </div>
