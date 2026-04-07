@@ -376,6 +376,107 @@ footer{padding:var(--space-8) var(--space-6);border-top:1px solid var(--color-di
   </div>
 </section>
 
+<div class="divider-line"></div>
+
+<!-- DATA PROJECTS -->
+<section class="section" id="projects">
+  <div class="container-wide">
+    <p class="section-label">Independent Projects</p>
+    <h2 class="section-title">Data analysis using real datasets</h2>
+    <p class="section-desc">Two end-to-end analytical projects built using public Kaggle datasets — applying SQL, Python, and Power BI to answer real business questions.</p>
+
+    <div class="projects-grid">
+
+      <!-- PROJECT 1 -->
+      <article class="project-card">
+        <div class="project-header">
+          <div class="project-tools">
+            <span class="tool-badge sql">SQL</span>
+            <span class="tool-badge powerbi">Power BI</span>
+            <span class="tool-badge kaggle">Kaggle Dataset</span>
+          </div>
+          <a href="https://github.com/ParikshitaJain/PortfolioProjects/tree/22b0a0fb6c8057288065c46980aad7a3db55f0e4/2.%20Campaign%20Performance%20Analysis" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View project on GitHub">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+        <h3 class="project-title">Campaign Performance Analysis</h3>
+        <p class="project-desc">Analysed 12 months of multi-channel marketing campaign data to identify engagement trends, platform efficiency, and cost optimisation opportunities across DV360, Facebook Ads, and Google Ads.</p>
+        <div class="project-stats">
+          <div class="pstat">
+            <span class="pstat-val">$858K</span>
+            <span class="pstat-label">Annual Spend Analysed</span>
+          </div>
+          <div class="pstat">
+            <span class="pstat-val">3 Platforms</span>
+            <span class="pstat-label">DV360, Meta, Google</span>
+          </div>
+          <div class="pstat">
+            <span class="pstat-val">31.2%</span>
+            <span class="pstat-label">Top Campaign CTR</span>
+          </div>
+        </div>
+        <div class="project-findings">
+          <p class="findings-title">Key findings</p>
+          <ul class="findings-list">
+            <li>DV360 delivered the highest reach (34M impressions) at the same CPC ($0.22) as Facebook Ads — strongest overall efficiency</li>
+            <li>Display campaigns achieved the highest CTR (3.95%); mobile drove the most clicks overall</li>
+            <li>Campaign 2980 achieved 31.2% CTR at $0.03 CPC vs. Campaign 3719's $6.24 CPC at 0.64% CTR — clear budget reallocation opportunity</li>
+            <li>Seasonal peaks in August and October drove the majority of annual impressions</li>
+          </ul>
+        </div>
+        <div class="project-method">
+          <span class="method-label">Methodology: </span>SQL grouping by campaign + budget tier → Power BI dashboard with DAX-calculated CPC, CTR, CPM → calendar table for trend analysis
+        </div>
+      </article>
+
+      <!-- PROJECT 2 -->
+      <article class="project-card">
+        <div class="project-header">
+          <div class="project-tools">
+            <span class="tool-badge python">Python</span>
+            <span class="tool-badge powerbi">Power BI</span>
+            <span class="tool-badge kaggle">Kaggle Dataset</span>
+          </div>
+          <a href="https://github.com/ParikshitaJain/PortfolioProjects/tree/main/E-Commerce%20Data%20Analysis" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View project on GitHub">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+        <h3 class="project-title">E-Commerce Sales & Customer Analysis</h3>
+        <p class="project-desc">Full-cycle analysis of a UK-based retailer's 2023 transaction data — from Python data cleaning (Pandas, Matplotlib) to Power BI dashboards — uncovering sales trends, RFM customer segments, and product performance.</p>
+        <div class="project-stats">
+          <div class="pstat">
+            <span class="pstat-val">£9.56M</span>
+            <span class="pstat-label">Revenue Analysed</span>
+          </div>
+          <div class="pstat">
+            <span class="pstat-val">98.36%</span>
+            <span class="pstat-label">Repeat Customer Rate</span>
+          </div>
+          <div class="pstat">
+            <span class="pstat-val">20K+</span>
+            <span class="pstat-label">Orders Processed</span>
+          </div>
+        </div>
+        <div class="project-findings">
+          <p class="findings-title">Key findings</p>
+          <ul class="findings-list">
+            <li>Oct–Nov spike (+43% vs. monthly avg) driven by Black Friday/holiday demand; December drop signals need for post-holiday retention campaigns</li>
+            <li>RFM segmentation identified 2,677 recent customers with low conversion to "best customer" — loyalty programme opportunity</li>
+            <li>4.29% cancellation rate traced to poor product listings — A/B testing descriptions recommended</li>
+            <li>Germany, Netherlands, and France represent untapped international growth alongside UK dominance</li>
+          </ul>
+        </div>
+        <div class="project-method">
+          <span class="method-label">Methodology: </span>Python (Pandas) for cleaning, deduplication, outlier handling → RFM scoring → Power BI for trend, geographic, and segment visualisation
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider-line"></div>
+
 <!-- SKILLS -->
 <section class="section" id="skills">
   <div class="container-wide">
